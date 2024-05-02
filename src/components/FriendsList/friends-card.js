@@ -3,7 +3,6 @@ import Status from "./status";
 import Button from "../atoms/button";
 
 function FriendCard({name, status, available, id, imgUrl}) {
-
   const buttonClasses = 'text-light list__card-details';
 
     return (

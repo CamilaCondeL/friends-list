@@ -1,26 +1,32 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
 import FriendCard from './components/FriendsList/friends-card';
-import data from './mockData.json'
+import FriendList from './components/FriendsList';
 
-test('renders a friend card ', () => {
-  render(<FriendCard />);
-  const NameElement = screen.getByRole('button', { name: /details/i });
-  expect(NameElement).toBeInTheDocument();
+beforeEach(() => {
+  global.fetch = jest.fn();
 });
 
-// Test suite
-describe('Friend Card', () => {
-  it('renders the data from the JSON file correctly', () => {
-    // Render the component with mocked data
-    render(<FriendCard data={data} />);
 
-    // Assert that the component renders the name
-    const nameElement = screen.getByText('Steph Walters');
+describe('tests Friends List component', () => {
+
+	it("renders a friend card", () => {
+    render(<FriendCard name="John Carter" status="At Home" available={true} id={1} imgUrl="test-mock-url.com"/>);
+    const nameElement = screen.getByText('John Carter');
     expect(nameElement).toBeInTheDocument();
+	});
 
-    // Assert that the component renders the age
-    const statusElement = screen.getByText('Developing something amazing');
-    expect(statusElement).toBeInTheDocument();
-  });
+	it("renders a list of friends", async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve([{ id: 1, first_name: 'John', last_name: 'Carter', status: 'At Home', available: true, imgUrl: 'test-mock-url.com' }, { id: 2, first_name: 'Patri', last_name: 'Conde', status: 'At Work', available: false, imgUrl: 'test-mock2-url.com' }]),
+    });
+  
+    render(<FriendList />);
+    await waitFor(() => expect(screen.getByText('John Carter')).toBeInTheDocument());
+    expect(screen.getByText('Patri Conde')).toBeInTheDocument();
+	});
+
+
+  //Write test for fetch error
 });
