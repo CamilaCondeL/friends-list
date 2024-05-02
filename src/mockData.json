@@ -1,0 +1,18 @@
+[
+    {
+        "id": 6, 
+        "img": "https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg", 
+        "first_name": "Steph",
+        "last_name": "Walters",
+        "status": "Developing something amazing",
+        "available": true
+    },
+    {
+        "id": 2, 
+        "img": "https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg", 
+        "first_name": "Vlad",
+        "last_name": "Baratovich",
+        "status": "Hangout out by the pool",
+        "available": true
+    }
+]
