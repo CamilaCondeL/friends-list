@@ -2,17 +2,17 @@ import ProfilePicture from "../atoms/profile-picture";
 import Status from "./status";
 import Button from "../atoms/button";
 
-function FriendCard({name, status, available, id, imgUrl}) {
+function FriendCard(props) {
   const buttonClasses = 'text-light list__card-details';
 
     return (
       <div className="list__card d-flex align-items-center bg-white">
-        <ProfilePicture imgUrl={imgUrl} available={available} classes="list__card-photo"/>
+        <ProfilePicture imgUrl={props.imgUrl} imgAlt={props.name} available={props.available} classes="list__card-photo"/>
         <div className="list__card-information">
-          <h1 className="mb-0">{name}</h1>
-          <Status content={status}/>
+          <h1 className="mb-0">{props.name}</h1>
+          <Status content={props.status}/>
         </div>
-        <Button content={'Details'} classes={buttonClasses} isDetail='true' id={id}/>  
+        <Button content={'Details'} classes={buttonClasses} isDetail={props.isDetail} id={props.id}/>  
       </div>
     );
   }

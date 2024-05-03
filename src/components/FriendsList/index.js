@@ -24,10 +24,9 @@ function FriendList() {
   return (
     <div className="list">
       <span className="list__heading">Friends</span>
-      {friends.map(item => (
-          <FriendCard key={item.id} name = {item.first_name + " " + item.last_name} status={item.status} available={item.available} imgUrl={item.img} id={item.id}/>
+      {friends.map(friend => (
+          <FriendCard key={friend.id} name={friend.first_name + " " + friend.last_name} {...friend}/>
       ))}
-        
 
     </div>
   );
