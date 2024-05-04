@@ -1,0 +1,107 @@
+.detail {
+    padding: 4.166% 28.8%;  
+
+    &__card {
+        margin-bottom: rem(30);
+
+        &-photo {
+            position: relative;
+            margin-bottom: rem(23);
+            
+            img:nth-child(2) {
+                height: rem(150);
+                width: rem(150);
+
+            }
+
+            &--available {
+                height: rem(23);
+                left: -10px;
+                position: absolute;
+                top: -6px;
+                width: rem(23);
+                z-index: 1;
+                
+            }
+        }
+
+        &-status {
+            box-sizing: border-box;
+        }
+
+        &-information {
+
+            h1 {
+                font-size: rem(26);
+                font-weight: 700;
+                line-height: rem(31.47);
+                margin-bottom: rem(10) !important;
+            }
+        }
+
+        &-infoComponent {
+            border-radius: 8px;
+            box-shadow: 0 rem(10) rem(20) rgba(204, 208, 223, 0.5);
+            padding: rem(28);
+
+            hr {
+                border: 1px solid rgba(177, 185, 219, 0.5);
+                margin: rem(28) 0;
+            }
+
+            span {
+                color: #B1B9DB;
+                font-weight: $light-weight;
+                font-size: rem(16);
+                line-height: rem(24);
+            }
+
+            p {
+                font-weight: 400;
+                font-size: rem(16);
+                line-height: rem(24);
+            }
+
+            &--bio {
+                span {
+                    margin-bottom: rem(10);
+                }
+            }
+
+            &--addressData {
+                
+                div {
+                    margin-bottom: rem(14);
+                }
+            }
+
+
+        }
+
+        &-photosTab {
+            border-radius: 8px;
+            box-shadow: 0 rem(10) rem(20) rgba(204, 208, 223, 0.5);
+            padding: 0 rem(10);
+
+            div {
+                padding: rem(10) rem(10) !important;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__tab {
+        border: 0 !important;
+        border-radius: 0 !important;
+        margin-bottom: rem(10);
+        width: rem(65);
+
+        &-active {
+            border-bottom: 2px solid #000000 !important;   
+        }
+
+    }
+}

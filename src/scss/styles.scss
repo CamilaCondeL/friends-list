@@ -1,86 +1,15 @@
-@function rem($size) {
-  $remSize: $size / 16;
-  @return #{$remSize}rem;
-}
-
 $primary-font-family: "Inter", sans-serif;
+$light-weight: 500;
+$bold-weight: 700;
 
+@import "./_rem-calculator";
+@import "./_details.styles";
+@import './_list.styles';
 
-.list {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin-top: rem(20);
-
-  &__heading {
-    color: #B1B9DB;
-    font-family: "Inter", sans-serif;;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 0 0 rem(14) rem(40);
-    gap: rem(10);
-    line-height: rem(24);
-    text-align: left;
-  }
-
-  &__card {
-    border-radius: rem(4);
-    box-shadow: 0 rem(10) rem(20) 0 #CCD0DF80;
-    margin: rem(14) rem(40);
-    padding: rem(14) rem(24) rem(14) rem(14);
-
-
-    h1 {
-      font-family: $primary-font-family;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      text-align: left;
-
-    }
-
-    &-photo {
-      height: 60px;
-      position: relative;
-      width: 60px;
-
-      &--available {
-        height: rem(12);
-        left: -5px;
-        position: absolute;
-        top: -2px;
-        width: rem(12);
-        z-index: 1;
-        
-      }
-    }
-
-    &-information {
-      margin: 0 auto 0 rem(14);
-    }
-
-    &-status {
-      border: solid #B1B9DB rem(1);
-      border-radius: rem(20);
-      height: rem(24px);
-      gap: rem(10);
-      padding: 0px rem(8) 0px rem(8);
-      
-      
-
-      span {
-        color: #B1B9DB;
-        font-family: $primary-font-family;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 24px;
-        text-align: left;
-      }
-    }
-
-    &-details {
-      background-color: #2E57FA;
-      border: solid rem(1) #0637F9;
-      border-radius: rem(4);
-      padding: rem(8) rem(20) rem(8) rem(20);
-    }
-  }
+body {
+  font-family: $primary-font-family;
 }
+
+
+
+
