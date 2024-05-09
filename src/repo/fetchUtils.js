@@ -21,7 +21,6 @@ export const fetchFriends = async () => {
           data.imgSuccess = false
         });
     }
-    console.log(data)
     return data;
   } catch (error) {
     return null;
@@ -43,12 +42,21 @@ export const fetchDetails = async (id) => {
         console.error('Error:', error);
       });
 
+      await axios.get(data.img)
+      .then(response => {
+        data.imgSuccess = true;
+      })
+      .catch(error => {
+        data.imgSuccess = false
+      });
+
     data.fullname = `${data.first_name} ${data.last_name}`;
     data.activeStatus = data.statuses[data.statuses.length - 1];
 
     return data;
   } catch (error) {
     console.log(error);
+    throw 500;
     return null;
   }
 };

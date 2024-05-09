@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import FriendCard from "../FriendsList/friends-card";
 import Info from "./info";
 import PhotosTab from "./photos-tab";
@@ -8,40 +7,52 @@ import mockData from "../../detailsMockData.json";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchDetails } from "../../repo/fetchUtils";
 import { DETAILS_URL } from "../../repo/apiUrls";
+import ErrorComponent from "../../Error";
 
+function FriendDetails() {
+  const [activeTab, setActiveTab] = useState('info');
+  const [friend, setFriend] = useState([]);
+  const [errors, setErrors] = useState({ itHappened: false, statusCode: 0 });
 
-function FriendDetails(id = 'id') {
-    const [activeTab, setActiveTab] = useState('info');
-    const [friend, setFriend] = useState([]);
-
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const data = await fetchDetails();
-          setFriend(data);  
-        } catch (error) {
-          console.error('Error fetching friends data:', error);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchDetails();
+        setFriend(data);  
+      } catch (error) {
+        if (error.response) {
+          setErrors({ itHappened: true, statusCode: error.response.status });
+        } else {
+          console.error('Error fetching data:', error);
+          setErrors({ itHappened: true, statusCode: 500 });
         }
-      };
+      }
+    };
   
-      fetchData();
-    }, []);
+    fetchData();
+  }, []);
 
-    const handleTabClick = (tab) => {
-      setActiveTab(tab);
-    }; 
-  
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  }; 
+
   return (
-    <div className="detail d-flex flex-column">
-        <FriendCard name={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={friend.img} isDetail={false}/>  
+    <div>
+      {errors.itHappened ? (
+        <ErrorComponent statusCode={errors.statusCode}/>
+      ) : (
+        <div className="detail d-flex flex-column">
+          <FriendCard fullname={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={friend.img} photoSuccess={friend.imgSuccess} isDetail={false}/>  
 
-        <div className="d-flex">
+          <div className="d-flex">
             <Button content="Info" classes={'btn detail__tab ' + (activeTab === 'info' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('info')}/>  
             <Button content="Photos" classes={'btn detail__tab ' + (activeTab === 'photos' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('photos')}/>  
-        </div>
+          </div>
 
-        {activeTab === 'info' && <Info  {...friend}/>}
-        {activeTab === 'photos' && <PhotosTab photos={friend.updatedPhotosUrls}/>}
+          {activeTab === 'info' && <Info  {...friend}/>}
+          {activeTab === 'photos' && <PhotosTab photos={friend.updatedPhotosUrls}/>}
+        </div>
+      )}
     </div>
   );
 }
