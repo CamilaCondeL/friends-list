@@ -1,0 +1,9 @@
+@function widthProp($size) {
+    $percentSize: ($size / 1440)*100%;
+    @return #{$percentSize};
+}
+
+@function heightProp($size) {
+    $percentSize: ($size / 1440)*100%;
+    @return #{$percentSize};
+}

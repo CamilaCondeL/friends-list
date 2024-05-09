@@ -1,18 +1,29 @@
 import { FRIENDS_URL } from "./apiUrls";
 import { DETAILS_URL } from "./apiUrls";
 import { fetchFlickrImageUrls } from "./downloadFromFlickr";
+import axios from 'axios';
 
 
 export const fetchFriends = async () => {
   try {
     const response = await fetch(FRIENDS_URL);
-    if (!response.ok) throw new Error('Data Error');
+    if (!response.ok) throw new Error(response.status);
 
     const data = await response.json();
-    data.fullname = `${data.first_name} ${data.last_name}`;
+
+    for (const friend of data) {
+      friend.fullname = `${friend.first_name} ${friend.last_name}`;
+      await axios.get(friend.img)
+        .then(response => {
+          data.imgSuccess = true;
+        })
+        .catch(error => {
+          data.imgSuccess = false
+        });
+    }
+    console.log(data)
     return data;
   } catch (error) {
-    console.log(error);
     return null;
   }
 };

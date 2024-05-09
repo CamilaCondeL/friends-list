@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchDetails } from "../../repo/fetchUtils";
 import { DETAILS_URL } from "../../repo/apiUrls";
 
-const manPhoto = require('../../images/man-picture.jpg');
 
 function FriendDetails(id = 'id') {
     const [activeTab, setActiveTab] = useState('info');
@@ -34,7 +33,7 @@ function FriendDetails(id = 'id') {
   
   return (
     <div className="detail d-flex flex-column">
-        <FriendCard name={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={manPhoto} isDetail={false}/>  
+        <FriendCard name={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={friend.img} isDetail={false}/>  
 
         <div className="d-flex">
             <Button content="Info" classes={'btn detail__tab ' + (activeTab === 'info' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('info')}/>  

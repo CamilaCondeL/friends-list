@@ -9,9 +9,9 @@ function FriendCard(props) {
 
     return (
       <div className={containerClasses}>
-        <ProfilePicture imgUrl={props.imgUrl} imgAlt={props.name} card_type={props.card_type} available={props.available} classes="list__card-photo"/>
+        <ProfilePicture imgUrl={props.imgUrl} imgAlt={props.name} card_type={props.card_type} available={props.available} photoSuccess={props.imgSuccess} classes="list__card-photo"/>
         <div className={informationDivClasses}>
-          <h1 className="mb-0">{props.name}</h1>
+          <h1 className="mb-0">{props.fullname}</h1>
           <Status content={props.status} card_type={props.card_type}/>
         </div>
         {props.isDetail && (

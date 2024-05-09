@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import FriendCard from "./friends-card";
 import { fetchFriends, fetchPhoto } from "../../repo/fetchUtils";
 import { fetchFlickrImageUrls } from "../../repo/downloadFromFlickr";
+import ErrorComponent from "../../Error";
 
 function FriendList() {
   const [friends, setFriends] = useState([]);
@@ -13,7 +14,7 @@ function FriendList() {
         setFriends(data);
 
       } catch (error) {
-        console.error('Error fetching friends data:', error);
+        <ErrorComponent statusCode={error} />
       }
     };
 
@@ -25,7 +26,7 @@ function FriendList() {
     <div className="list">
       <span className="list__heading">Friends</span>
       {friends.map(friend => (
-        <FriendCard key={friend.id} name={friend.first_name + " " + friend.last_name} card_type="list" isDetail={true} {...friend} />
+        <FriendCard key={friend.id} card_type="list" isDetail={true} {...friend} />
       ))}
 
     </div>
