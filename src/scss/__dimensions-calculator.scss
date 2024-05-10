@@ -4,6 +4,6 @@
 }
 
 @function heightProp($size) {
-    $percentSize: ($size / 1440)*100%;
+    $percentSize: ($size / 1024)*100%;
     @return #{$percentSize};
 }

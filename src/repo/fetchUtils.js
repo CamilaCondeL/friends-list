@@ -29,7 +29,6 @@ export const fetchFriends = async () => {
 
 
 export const fetchDetails = async (id) => {
-  let updatedUrls = [];
   try {
     const response = await fetch(DETAILS_URL);
     if (!response.ok) throw new Error('Data Error');
@@ -37,7 +36,7 @@ export const fetchDetails = async (id) => {
     const data = await response.json();
     fetchFlickrImageUrls(data.photos)
       .then(response => {
-        data.updatedPhotosUrls = response;
+        data.updatedUrls = response;
       }).catch(error => {
         console.error('Error:', error);
       });

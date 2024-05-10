@@ -1,6 +1,6 @@
 .list {
     background-color: rgba(255, 255, 255, 0.5);
-    padding: widthProp(195) heightProp(363);
+    padding: heightProp(195) widthProp(363);
   
     &__heading {
       color: #B1B9DB;
@@ -56,9 +56,8 @@
         border: solid #B1B9DB rem(1);
         border-radius: rem(20);
         height: rem(24);
-        padding: 0 rem(8) 0 rem(8);
-        
-        
+        padding: 0 rem(8) 0 rem(8);        
+
   
         span {
           color: #B1B9DB;

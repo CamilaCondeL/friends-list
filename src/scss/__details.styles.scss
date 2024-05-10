@@ -1,5 +1,23 @@
 .detail {
-    padding: 4.166% 28.8%;  
+    background-color: rgba(244, 246, 254, 1);
+    padding: heightProp(60) widthProp(416) heightProp(60) widthProp(292);
+    position: relative;  
+    height: 100% !important;
+
+    &__box {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        padding: rem(60);
+    }
+
+    &__backBtn {
+        background-color: #fff;
+        border-radius: 8px;
+        color: #2E57FA;
+        height: rem(44);
+        margin-right: rem(80);
+        padding: rem(15) rem(14);
+    } 
 
     &__card {
         margin-bottom: rem(30);
@@ -19,9 +37,7 @@
                 left: -10px;
                 position: absolute;
                 top: -6px;
-                width: rem(23);
-                z-index: 1;
-                
+                width: rem(23);            
             }
 
             &--generic {
@@ -44,8 +60,10 @@
         }
 
         &-infoComponent {
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 rem(10) rem(20) rgba(204, 208, 223, 0.5);
+            height: 100%;
             padding: rem(28);
 
             hr {
@@ -85,6 +103,7 @@
         &-photosTab {
             border-radius: 8px;
             box-shadow: 0 rem(10) rem(20) rgba(204, 208, 223, 0.5);
+            height: 100%;
             padding: 0 rem(10);
 
             div {
@@ -92,7 +111,50 @@
             }
 
             img {
+                height: 100%;
                 width: 100%;
+            }
+
+            &--modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+
+                &__background{
+                    background-color: rgba(55, 62, 90, 0.9);
+                    height: 100%;
+                    left: 0;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;            
+                    z-index: -1;
+                }
+
+                &__zoomedImage{
+                    height: heightProp(656) !important;
+                    transition: width 0.3s ease; 
+                    width: widthProp(985) !important;
+                }
+
+                &__normalImage{
+                    width: 100%;
+                    transition: width 0.3s ease;
+                }
+
+                &__closeBtn {
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    color: #fff;
+                    height: rem(44);
+                    position: absolute;
+                    right: 60px;
+                    top: 60px;
+                    width: rem(44);
+                    z-index: 1;
+                }
             }
         }
     }

@@ -4,7 +4,7 @@ import Button from "../atoms/button";
 
 function FriendCard(props) {
   const buttonClasses = 'text-light ' + props.card_type + '__card-details';
-  const containerClasses = props.isDetail ? "d-flex align-items-center bg-white " + props.card_type + "__card" : "d-flex flex-column bg-white " + props.card_type + "__card";
+  const containerClasses = props.isDetail ? "d-flex align-items-center bg-white " + props.card_type + "__card" : "d-flex flex-column " + props.card_type + "__card";
   const informationDivClasses = props.card_type + "__card-information";
 
     return (

@@ -3,11 +3,13 @@ import FriendCard from "../FriendsList/friends-card";
 import Info from "./info";
 import PhotosTab from "./photos-tab";
 import Button from "../atoms/button";
-import mockData from "../../detailsMockData.json";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchDetails } from "../../repo/fetchUtils";
-import { DETAILS_URL } from "../../repo/apiUrls";
 import ErrorComponent from "../../Error";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from "react-router-dom";
+
+
 
 function FriendDetails() {
   const [activeTab, setActiveTab] = useState('info');
@@ -38,20 +40,25 @@ function FriendDetails() {
 
   return (
     <div>
+      
       {errors.itHappened ? (
         <ErrorComponent statusCode={errors.statusCode}/>
       ) : (
-        <div className="detail d-flex flex-column">
-          <FriendCard fullname={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={friend.img} photoSuccess={friend.imgSuccess} isDetail={false}/>  
+          <div className="detail d-flex">
+            <div className="detail__backBtn d-flex align-items-center justify-content-center">
+              <Link to="/"><FontAwesomeIcon icon={faArrowLeft} /></Link>
+            </div>
+            <div className="d-flex flex-column detail__box">
+              <FriendCard fullname={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={friend.img} photoSuccess={friend.imgSuccess} isDetail={false} />
+              <div className="d-flex">
+                <Button content="Info" classes={'btn detail__tab ' + (activeTab === 'info' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('info')} />
+                <Button content="Photos" classes={'btn detail__tab ' + (activeTab === 'photos' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('photos')} />
+              </div>
 
-          <div className="d-flex">
-            <Button content="Info" classes={'btn detail__tab ' + (activeTab === 'info' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('info')}/>  
-            <Button content="Photos" classes={'btn detail__tab ' + (activeTab === 'photos' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('photos')}/>  
+              {activeTab === 'info' && <Info  {...friend} />}
+              {activeTab === 'photos' && <PhotosTab photos={friend.updatedUrls} />}
+            </div>
           </div>
-
-          {activeTab === 'info' && <Info  {...friend}/>}
-          {activeTab === 'photos' && <PhotosTab photos={friend.updatedPhotosUrls}/>}
-        </div>
       )}
     </div>
   );
