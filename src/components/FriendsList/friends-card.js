@@ -1,9 +1,9 @@
 import ProfilePicture from "../atoms/profile-picture";
 import Status from "./status";
-import Button from "../atoms/button";
+import { Link } from "react-router-dom";
 
 function FriendCard(props) {
-  const buttonClasses = 'text-light ' + props.card_type + '__card-details';
+  const buttonClasses = props.card_type + '__card-details';
   const containerClasses = props.isDetail ? "d-flex align-items-center bg-white " + props.card_type + "__card" : "d-flex flex-column " + props.card_type + "__card";
   const informationDivClasses = props.card_type + "__card-information";
 
@@ -15,7 +15,10 @@ function FriendCard(props) {
           <Status content={props.status} card_type={props.card_type}/>
         </div>
         {props.isDetail && (
-                <Button content={'Details'} classes={buttonClasses} isDetail={props.isDetail} id={props.id}/>
+          <div className={buttonClasses}>
+            <Link to="/friend-details">Details</Link>
+          </div>
+                
         )}
       </div>
     );

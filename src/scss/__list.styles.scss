@@ -73,6 +73,11 @@
         border: solid rem(1) #0637F9;
         border-radius: rem(4);
         padding: rem(8) rem(20) rem(8) rem(20);
+
+        a {
+          color: #fff !important;
+          text-decoration: none;
+        }
       }
     }
   }
