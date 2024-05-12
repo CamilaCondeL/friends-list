@@ -22,7 +22,7 @@ function PhotosTab({photos}) {
                {
                     photos.map((photo, index) => (
                         <div key={index} className="col-md-4">
-                            <img src={photo} alt={`Photo ${index + 1}`} onClick={() => handleImageClick(photo)} />
+                            <img src={photo} alt={` ${index + 1}`} onClick={() => handleImageClick(photo)} />
                         </div>
                     ))
                 }

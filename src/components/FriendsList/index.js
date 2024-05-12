@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FriendCard from "./friends-card";
-import { fetchFriends, fetchPhoto } from "../../repo/fetchUtils";
-import { fetchFlickrImageUrls } from "../../repo/downloadFromFlickr";
+import { fetchFriends } from "../../repo/fetchUtils";
 import ErrorComponent from "../../Error";
 
 function FriendList() {

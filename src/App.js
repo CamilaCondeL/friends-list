@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import "./scss/styles.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FriendList from './components/FriendsList';
 import FriendDetails from './components/FriendDetails';
-import NotFound from './NotFound';
 
 function App() {
   return (
