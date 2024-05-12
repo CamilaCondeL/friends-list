@@ -15,6 +15,7 @@ export const fetchFriends = async () => {
       friend.fullname = `${friend.first_name} ${friend.last_name}`;
       await axios.get(friend.img)
         .then(response => {
+          console.log(response)
           data.imgSuccess = true;
         })
         .catch(error => {
@@ -36,14 +37,13 @@ export const fetchDetails = async (id) => {
     const data = await response.json();
     fetchFlickrImageUrls(data.photos)
       .then(response => {
+        console.log(response)
+        data.imgSuccess = true;
         data.updatedUrls = response;
       }).catch(error => {
+        data.imgSuccess = false;
         console.error('Error:', error);
       });
-
-      await axios.get(data.img)
-      .then(data.imgSuccess = true)
-      .catch(data.imgSuccess = false);
 
     data.fullname = `${data.first_name} ${data.last_name}`;
     data.activeStatus = data.statuses[data.statuses.length - 1];

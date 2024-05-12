@@ -11,6 +11,18 @@ body {
   font-family: $primary-font-family;
 }
 
+.loading-container {
+  height: 100vh;
+}
+
+.spinner-border {
+  color: #A3D8FF !important;
+  --bs-spinner-width: 12rem !important;
+  --bs-spinner-height: 12rem !important;
+  --bs-spinner-vertical-align: -0.125em !important;
+  --bs-spinner-border-width: 1.25em !important;
+  --bs-spinner-animation-speed: 1.5s !important;
+}
 
 
 
