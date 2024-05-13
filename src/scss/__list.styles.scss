@@ -1,6 +1,14 @@
 .list {
     background-color: rgba(255, 255, 255, 0.5);
     padding: heightProp(195) widthProp(363);
+
+    @include mobile-breakpoint{
+      padding: heightProp(195) widthProp(11);
+    }
+
+    @include tablet-breakpoint{
+      padding: heightProp(195) widthProp(245);
+    }
   
     &__heading {
       color: #B1B9DB;
@@ -17,6 +25,10 @@
       box-shadow: 0 rem(10) rem(20) 0 #CCD0DF80;
       margin: rem(14) rem(40);
       padding: rem(14) rem(24) rem(14) rem(14);
+
+      @include mobile-breakpoint{
+        flex-direction: column;
+      }
   
   
       h1 {
@@ -50,6 +62,13 @@
   
       &-information {
         margin: 0 auto 0 rem(14);
+
+        @include mobile-breakpoint{
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          margin: 14px 0;
+        }
       }
   
       &-status {
@@ -60,6 +79,11 @@
 
   
         span {
+          @include mobile-breakpoint{
+            font-size: rem(9);
+            line-height: rem(18);
+          }
+
           color: #B1B9DB;
           font-size: rem(12);
           font-weight: $light-weight;
@@ -73,6 +97,13 @@
         border: solid rem(1) #0637F9;
         border-radius: rem(4);
         padding: rem(8) rem(20) rem(8) rem(20);
+
+        @include mobile-breakpoint {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
         a {
           color: #fff !important;

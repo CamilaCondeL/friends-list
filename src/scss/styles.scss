@@ -1,6 +1,20 @@
+//primary configurations
 $primary-font-family: "Inter", sans-serif;
 $light-weight: 500;
 $bold-weight: 700;
+
+//Important breakpoints
+@mixin mobile-breakpoint {
+  @media screen and (max-width: rem(768)) {
+      @content;
+  }
+}
+
+@mixin tablet-breakpoint {
+  @media screen and (max-width: rem(992)) and (min-width: rem(768)) {
+      @content;
+  }
+}
 
 @import "./_rem-calculator";
 @import "./_dimensions-calculator";
@@ -8,7 +22,7 @@ $bold-weight: 700;
 @import './_list.styles';
 
 body {
-  font-family: $primary-font-family;
+  font-family: $primary-font-family !important;
 }
 
 .loading-container {
