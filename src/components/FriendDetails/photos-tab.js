@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import ImageModal from "./photo-details";
+import Button from "../atoms/button";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -17,7 +18,9 @@ function PhotosTab({photos, name}) {
 
     return (
         <div className="detail__card-photosTab">
-            <div className="detail__card-photosTab--modal__closeBtn d-flex align-items-center justify-content-center" onClick={handleCloseModal}><FontAwesomeIcon icon={faXmark} /></div>
+            {selectedImage && (
+                <Button isDetail={false} classes="detail__card-photosTab--modal__closeBtn d-flex align-items-center justify-content-center"onClick={handleCloseModal} content={<FontAwesomeIcon icon={faXmark} />}/>
+            )}  
             <div className="row">
                {
                     photos.map((photo, index) => (

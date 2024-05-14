@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageModal = ({ imageUrl, onClose }) => {
+const ImageModal = ({ imageUrl}) => {
 
   return (
     <div className="detail__card-photosTab--modal d-flex align-items-center justify-content-center">
