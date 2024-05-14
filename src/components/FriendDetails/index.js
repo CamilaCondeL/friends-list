@@ -58,7 +58,7 @@ function FriendDetails() {
         <Link to="/"><FontAwesomeIcon icon={faArrowLeft} /></Link>
       </div>
       <div className="d-flex flex-column detail__box">
-        <FriendCard fullname={friend.fullname} key={friend.id} status={friend.activeStatus} card_type="detail" imgUrl={friend.img} photoSuccess={friend.imgSuccess} isDetail={false} />
+        <FriendCard fullname={friend.fullname} key={friend.id} status={friend.activeStatus} cardType="detail" imgUrl={friend.img} photoSuccess={friend.imgSuccess} isDetail={false} />
         <div className="d-flex">
           <Button content="Info" classes={'btn detail__tab ' + (activeTab === 'info' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('info')} />
           <Button content="Photos" classes={'btn detail__tab ' + (activeTab === 'photos' ? 'detail__tab-active' : '')} onClick={() => handleTabClick('photos')} />

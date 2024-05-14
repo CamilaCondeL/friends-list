@@ -44,7 +44,7 @@ function FriendList() {
     <div className="list">
       <span className="list__heading">Friends</span>
       {friends.map(friend => (
-        <FriendCard key={friend.id} card_type="list" isDetail={true} {...friend} />
+        <FriendCard key={friend.id} cardType="list" isDetail={true} {...friend} />
       ))}
 
     </div>
