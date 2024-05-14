@@ -8,7 +8,7 @@ function FriendCard(props) {
   const informationDivClasses = props.card_type + "__card-information";
 
     return (
-      <div className={containerClasses}>
+      <div data-testid="friend-card" className={containerClasses}>
         <ProfilePicture imgUrl={props.imgUrl} imgAlt={props.name} card_type={props.card_type} available={props.available} photoSuccess={props.imgSuccess} classes="list__card-photo"/>
         <div className={informationDivClasses}>
           <h1 className="mb-0">{props.fullname}</h1>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FriendCard from "../FriendsList/friends-card";
+import FriendCard from "../common/friends-card";
 import Info from "./info";
 import PhotosTab from "./photos-tab";
 import Button from "../atoms/button";
@@ -65,7 +65,7 @@ function FriendDetails() {
         </div>
 
         {activeTab === 'info' && <Info  {...friend} />}
-        {activeTab === 'photos' && <PhotosTab photos={friend.updatedUrls} />}
+        {activeTab === 'photos' && <PhotosTab photos={friend.updatedUrls} name={friend.fullname}/>}
       </div>
     </div>
   );

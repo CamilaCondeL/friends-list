@@ -3,6 +3,7 @@
     "img": "https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg", 
     "first_name": "Steph",
     "last_name": "Walters",
+    "fullname": "Steph Walters",
     "phone": "(820) 289-1818",
     "address_1": "5190 Center Court Drive",
     "city": "Spring",
@@ -22,5 +23,11 @@
         "Take a look around you, everything is awesome",
         "What is the point of all of this"
     ],
-    "available": true
+    "activeStatus": "What is the point of all of this",
+    "available": true,
+    "updatedUrls": [
+        "https://live.staticflickr.com/3810/13486127084_93c5e8dc9d_k.jpg", 
+        "https://live.staticflickr.com/2921/14199191572_7b1e57832e_k.jpg", 
+        "https://live.staticflickr.com/7414/13483902553_8a0a602b6c_k.jpg"
+    ]
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FriendCard from "./friends-card";
+import FriendCard from "../common/friends-card";
 import { fetchFriends } from "../../repo/fetchUtils";
 import ErrorComponent from "../../Error";
 import Loading from "../common/loading";
@@ -21,6 +21,7 @@ function FriendList() {
         } else {
           console.error('Error fetching data:', error);
           setErrors({ itHappened: true, statusCode: 500 });
+          setIsLoading(false);
         }
       }
       setTimeout(() => {

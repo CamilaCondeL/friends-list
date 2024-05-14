@@ -3,7 +3,7 @@ import ImageModal from "./photo-details";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function PhotosTab({photos}) {
+function PhotosTab({photos, name}) {
     const [selectedImage, setSelectedImage] = useState(null);
 
 
@@ -22,7 +22,7 @@ function PhotosTab({photos}) {
                {
                     photos.map((photo, index) => (
                         <div key={index} className="col-md-4">
-                            <img src={photo} alt={` ${index + 1}`} onClick={() => handleImageClick(photo)} />
+                            <img src={photo} alt={name} onClick={() => handleImageClick(photo)} />
                         </div>
                     ))
                 }

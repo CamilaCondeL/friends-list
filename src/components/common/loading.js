@@ -3,7 +3,7 @@ import LoadingSpinner from '../atoms/spinner';
     
 function Loading() {
   return (
-    <div className="loading-container d-flex align-items-center justify-content-center">
+    <div data-testid="loading" className="loading-container d-flex align-items-center justify-content-center">
       <LoadingSpinner />
     </div>
   );
