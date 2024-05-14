@@ -20,7 +20,7 @@ describe('tests Friends Details component', () => {
     jest.useRealTimers();
   });
 
-  it('fetches and displays a friends details after 2 seconds', async () => {
+  it('renders the photos tab', async () => {
     fetchDetails.mockResolvedValueOnce(detailMockData);
   
     await act(async () => {
@@ -36,11 +36,6 @@ describe('tests Friends Details component', () => {
     });
 
     await waitFor(() => {
-        const friendElements = screen.getAllByTestId('friend-card');
-        expect(friendElements.length).toBe(1);
-        expect(screen.getByText("Steph Walters")).toBeInTheDocument();
-        expect(screen.getByText("What is the point of all of this")).toBeInTheDocument();
-
         act(() => {
             fireEvent.click(screen.getByText('Photos'));
         });
@@ -52,25 +47,4 @@ describe('tests Friends Details component', () => {
         });
     });
   }); 
-
-  it('handles API error correctly', async () => {
-    fetchDetails.mockRejectedValueOnce({ response: { status: 403 } });
-
-    await act(async () => {
-      render(
-        <Router>
-          <FriendDetails />
-        </Router>
-      );
-    });
-
-    act(() => {
-      jest.runOnlyPendingTimers();
-    });
-
-    await waitFor(async () => {
-      const errorComponent = await screen.findByText(/Forbidden/i);
-      expect(errorComponent).toBeInTheDocument();
-    });
-  });
 });

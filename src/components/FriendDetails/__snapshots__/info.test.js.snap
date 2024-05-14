@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info component matches the snapshot 1`] = `
+<div>
+  <div
+    class="detail__card-infoComponent d-flex flex-column"
+  >
+    <div
+      class="detail__card-infoComponent--bio"
+    >
+      <span>
+        Bio:
+      </span>
+      <p
+        class="mb-0"
+      >
+        I'm very choosy. I'm also very suspicious, very irrational and I have a very short temper. I'm also extremely jealous and slow to forgive. Just so you know.
+      </p>
+    </div>
+    <hr />
+    <div
+      class="detail__card-infoComponent--phone d-flex"
+    >
+      <span
+        class="w-50"
+      >
+        Phone:
+      </span>
+      <p
+        class="mb-0"
+      >
+        (820) 289-1818
+      </p>
+    </div>
+    <hr />
+    <div
+      class="detail__card-infoComponent--addressData"
+    >
+      <div
+        class="d-flex"
+      >
+        <span
+          class="w-50"
+        >
+          Address:
+        </span>
+        <p
+          class="mb-0"
+        >
+          5190 Center Court Drive
+        </p>
+      </div>
+      <div
+        class="d-flex"
+      >
+        <span
+          class="w-50"
+        >
+          City:
+        </span>
+        <p
+          class="mb-0"
+        >
+          Spring
+        </p>
+      </div>
+      <div
+        class="d-flex"
+      >
+        <span
+          class="w-50"
+        >
+          State:
+        </span>
+        <p
+          class="mb-0"
+        >
+          TX
+        </p>
+      </div>
+      <div
+        class="d-flex"
+      >
+        <span
+          class="w-50"
+        >
+          Zipcode:
+        </span>
+        <p
+          class="mb-0"
+        >
+          77370
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
