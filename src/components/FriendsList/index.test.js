@@ -7,17 +7,31 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 jest.mock('../../repo/fetchUtils');
 
-beforeEach(() => {
-  global.fetch = jest.fn();
-});
+
 
 describe('tests Friends List component', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn();
+    fetchFriends.mockReset();
+  });
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
   afterAll(() => {
     jest.useRealTimers();
+  });
+
+  it('renders loading initially', async () => {
+    await act(async () => {
+      render(
+        <Router>
+          <FriendList />
+        </Router>
+      );
+    });
+    expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 
   it('fetches and displays friends after 2 seconds', async () => {
@@ -44,4 +58,25 @@ describe('tests Friends List component', () => {
       });
     });
   }); 
+
+  it('handles API error correctly', async () => {
+    fetchFriends.mockRejectedValueOnce({ response: { status: 404 } });
+
+    await act(async () => {
+      render(
+        <Router>
+          <FriendList />
+        </Router>
+      );
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(async () => {
+      const errorComponent = await screen.findByText(/Not Found/i);
+      expect(errorComponent).toBeInTheDocument();
+    });
+  });
 });
