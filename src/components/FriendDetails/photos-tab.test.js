@@ -1,7 +1,7 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { act } from 'react';
 import FriendDetails from '.';
-import detailMockData from '../../detailsMockData.json';
+import detailMockData from '../../mocks/detailsMockData.json';
 import { fetchDetails  } from '../../repo/fetchUtils';
 import { BrowserRouter as Router } from 'react-router-dom'; 
 

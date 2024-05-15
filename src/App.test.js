@@ -4,8 +4,8 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import FriendList from './components/FriendsList';
 import FriendDetails from './components/FriendDetails';
 import { fetchFriends, fetchDetails } from './repo/fetchUtils';
-import detailMockData from './detailsMockData.json';
-import listMockData from './mockData.json';
+import detailMockData from './mocks/detailsMockData.json';
+import listMockData from './mocks/mockData.json';
 
 jest.mock('./repo/fetchUtils');
 

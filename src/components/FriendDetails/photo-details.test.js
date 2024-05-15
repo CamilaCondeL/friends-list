@@ -1,6 +1,6 @@
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom'; 
-import detailMockData from '../../detailsMockData.json';
+import detailMockData from '../../mocks/detailsMockData.json';
 import PhotosTab from './photos-tab';
 
 jest.mock('../../repo/fetchUtils');
