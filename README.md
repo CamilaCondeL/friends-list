@@ -68,3 +68,57 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+______________________________________________________________________________________
+PROJECT STRUCTURE
+______________________________________________________________________________________
+
+.
+├── App.js
+├── App.test.js
+├── Error.js
+├── components
+│   ├── FriendDetails
+│   │   ├── __snapshots__
+│   │   │   └── info.test.js.snap
+│   │   ├── index.js
+│   │   ├── index.test.js
+│   │   ├── info.js
+│   │   ├── info.test.js
+│   │   ├── photo-details.js
+│   │   ├── photo-details.test.js
+│   │   ├── photos-tab.js
+│   │   └── photos-tab.test.js
+│   ├── FriendsList
+│   │   ├── index.js
+│   │   └── index.test.js
+│   ├── atoms
+│   │   ├── button.js
+│   │   ├── profile-picture.js
+│   │   └── spinner.js
+│   └── common
+│       ├── friends-card.js
+│       ├── loading.js
+│       └── status.js
+├── images
+│   ├── available.svg
+│   ├── generic-photo.svg
+│   └── notAvailable.svg
+├── index.js
+├── logo.svg
+├── mocks
+│   ├── detailsMockData.json
+│   └── mockData.json
+├── repo
+│   ├── apiUrls.js
+│   ├── downloadFromFlickr.js
+│   └── fetchUtils.js
+├── reportWebVitals.js
+├── scss
+│   ├── __details.styles.scss
+│   ├── __dimensions-calculator.scss
+│   ├── __list.styles.scss
+│   ├── __rem-calculator.scss
+│   └── styles.scss
+└── setupTests.js
